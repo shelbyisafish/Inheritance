@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InheritanceLib;
+using System;
 
 namespace InheritanceConsole
 {
@@ -6,7 +7,7 @@ namespace InheritanceConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("");
         }
     }
 }
