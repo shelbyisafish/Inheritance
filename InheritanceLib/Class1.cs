@@ -8,5 +8,6 @@ namespace InheritanceLib
 {
     public class Class1
     {
+        private string hello = "Hello World";
     }
 }
