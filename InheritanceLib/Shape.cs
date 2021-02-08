@@ -9,9 +9,25 @@ namespace InheritanceLib
     public class Shape
     {
         protected int dictatingMeasurement;
-        public Shape() { }
+
+        /// <summary>
+        /// For every subclass of Shape, if a constructor does not explicitly call
+        /// a base constructor, : base() will still be called. (Notice, "Creating a Shape()"
+        /// is always output.)
+        /// Even if the default constructor Shape() was not explicitly declared here, 
+        /// it would be automatically created behind the scenes and called.
+        /// 
+        /// For inheritance, it's not a question of *if* a base class will be created,
+        /// it's only a choice of which constructor will be called.
+        /// </summary>
+        public Shape()
+        {
+            Console.WriteLine($"Creating a Shape()");
+        }
+
         public Shape(int size)
         {
+            Console.WriteLine($"Creating a Shape(int {size})");
             dictatingMeasurement = size;
         }
 

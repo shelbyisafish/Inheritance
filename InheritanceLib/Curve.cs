@@ -8,8 +8,14 @@ namespace InheritanceLib
 {
     public class Curve : Line
     {
-        public Curve() { }
-        public Curve(int size) : base(size) { }
+        public Curve()
+        {
+            Console.WriteLine($"Creating a Curve()");
+        }
+        public Curve(int size) : base(size)
+        {
+            Console.WriteLine($"Creating a Curve(int {size})");
+        }
 
         /// <summary>
         /// Cannot override a sealed method.

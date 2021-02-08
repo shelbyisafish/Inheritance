@@ -11,35 +11,41 @@ namespace InheritanceLib
         private int length;
         private int width;
 
-        // Don't call base instructor
-        public Rectangle() { }
+        public Rectangle() 
+        {
+            Console.WriteLine($"Creating a Rectangle()");
+        }
 
-        // Call base constructor.
-        public Rectangle(string someDiff) : base() { }
+        // Intentionally not calling the constructor for Shape.
+        //protected Rectangle(int size) : base(size) { }
 
-        /// <summary>
-        /// Call base constructor
-        /// </summary>
-        /// <param name="size"></param>
-        protected Rectangle(int size) : base(size) { }
         public Rectangle(int length, int width)
         {
+            Console.WriteLine($"Creating a Rectangle(int {length}, int {width})");
             this.length = length;
             this.width = width;
         }
 
-        public string publicField_Rectangle = "Public_Rectangle";
-        protected string protectedField_Rectangle = "Protected_Rectangle";
-        private string privateField_Rectangle = "Private_Rectangle";
-
-        public string publicProperty_Rectangle { get; set; }
-        protected string protectedProperty_Rectangle { get; set; }
-        private string privateProperty_Rectangle { get; set; }
-
+        /// <summary>
+        /// Override Shape's CalculateArea() with a new calculation.
+        /// This hides Shape's CalculateArea() for all subclasses of Rectangle and replaces it with this one.
+        /// </summary>
+        /// <returns></returns>
         public override double CalculateArea()
         {
             return length*width;
         }
 
+        /// <summary>
+        /// Shape's protected and public fields/properties are accesible to all subclasses.
+        /// </summary>
+        private void PropertyVisibilityFromBase()
+        {
+            protectedField = "rectangle test";
+            protectedProperty = "rectangle test";
+            publicField = "rectangle test";
+            publicProperty = "rectangle test";
+            return;
+        }
     }
 }

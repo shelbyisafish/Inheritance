@@ -8,22 +8,23 @@ namespace InheritanceLib
 {
     public class Square : Rectangle
     {
-        public Square() { }
+        public Square()
+        {
+            Console.WriteLine($"Creating a Square()");
+        }
 
-        /// <summary>
-        /// Calls Rectangle constructure, not Shape.
-        /// </summary>
-        /// <param name="size"></param>
-        public Square(int size) : base(size, size) { }
+        // Not possible to call Shape's constructor from Square.
+        // A derived class may only decide how to call its superclass. It's Rectangle's responsibility to decide how Shape should be constructed.
+        //public Square(int size) : base(size) { }
 
-        /// <summary>
-        /// Don't need to override base method unless there's something more to add.
-        /// This would call Rectangle.CalculateArea().
-        /// </summary>
-        /// <returns></returns>
-        //public override double CalculateArea()
-        //{
-        //    return base.CalculateArea();
-        //}
+        public Square(int size) : base(size, size)
+        {
+            Console.WriteLine($"Creating a Square(int {size})");
+        }
+
+        // Not overriding CalculateArea() here because Rectangle's calculation works for Square.
+        // Since Square.CalculateArea() doesn't exist, if a Square is created and mySquare1.CalculateArea() is called, 
+        // the call will get passed down the hierarchy until a defined method is found. In this case,
+        // it would find Rectangle.CalculateArea() and use that.
     }
 }
